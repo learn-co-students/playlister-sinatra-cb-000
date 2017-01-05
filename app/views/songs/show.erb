@@ -1,6 +1,13 @@
 <table>
   <tr>
     <td>
+      <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <h1><%= @song.name %></h1>
     </td>
     <td>
