@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td>
+      <h1><%= @artist.name %></h1>
+    </td>
+    <% @artist.genres.each do |genre| %>
+    <tr>
+      <td>
+        <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+      </td>
+    </tr>
+    <% end %>
+    <% @artist.songs.each do |song| %>
+      <tr>
+        <td>
+          <a href="/songs/<%= song.slug %>"><%= song.name %></a>
+        </td>
+      </tr>
+    <% end %>
+  </tr>
+</table>
