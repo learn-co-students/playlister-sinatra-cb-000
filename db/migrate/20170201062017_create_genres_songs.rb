@@ -1,8 +1,8 @@
 class CreateGenresSongs < ActiveRecord::Migration
   def change
-    create_table :genres_songs, id: false do |t|
-      t.belongs_to :genre, index: true
-      t.belongs_to :song, index: true
+    create_table :song_genres do |t|
+      t.integer :genre_id
+      t.integer :song_id
     end    
   end
 end
