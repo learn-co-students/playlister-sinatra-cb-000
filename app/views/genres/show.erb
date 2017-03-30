@@ -1,0 +1,14 @@
+<h1>Genre's Information</h1>
+
+<p><b>Genre's Name: </b><%=@genre.name%></p>
+
+<p><b>Genre's Songs:</b>
+<%@genre.songs.each.with_index(1) do |song, index|%>
+	<p><%=index%>. <%=song.name%>
+	<a href= "/songs/<%=song.slug%>">Click to View Songs's Info</a></p>
+<%end%></p>
+<p><b>Genre's Artists:</b>
+<%@genre.artists.each.with_index(1) do |artist, index|%>
+	<p><%=index%>. <%=artist.name%>
+	<a href= "/artists/<%=artist.slug%>">Click to View Genre's Info</a></p>
+<%end%></p>
