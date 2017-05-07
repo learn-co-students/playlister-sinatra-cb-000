@@ -1,0 +1,5 @@
+h2 list of all artists
+
+ul
+  - @artists.each do |artist|
+    li: a[href="/artists/#{artist.slug}"] = artist.name
