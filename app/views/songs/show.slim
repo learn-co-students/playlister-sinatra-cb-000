@@ -1,0 +1,10 @@
+p = flash[:message] if flash[:message]
+
+h2 = @song.name
+h3 It's artist is:
+a href='/artists/#{@song.artist.slug}' = @song.artist.name
+
+h3 It's genres are:
+ul
+  - @song.genres.each do |genre|
+    li: a[href='/genres/#{genre.slug}'] = genre.name

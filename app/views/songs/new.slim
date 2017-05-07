@@ -1,0 +1,16 @@
+form action="/songs" method="post"
+  label>
+    | Song name:
+    input#Name type="text" name="song[name]" 
+  label
+    | Artist name:
+    input#artist_name type="text" name="artist_name"
+  ul
+    - @genres.each do |genre|
+      li 
+        label
+          = genre.name
+          input type="checkbox" name="song[genre_ids][]" value="#{genre.id}" id="#{genre.name}" /
+  
+  input type="submit" value="Create"
+  

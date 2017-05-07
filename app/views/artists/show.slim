@@ -1,0 +1,9 @@
+h2 = "#{@artist.name}'s songs"
+ul
+  - @artist.songs.each do |song|
+    li: a[href='/songs/#{song.slug}'] = song.name
+
+h2 = "#{@artist.name}'s genres"
+ul
+  - @artist.genres.each do |genre|
+    li: a[href='/genres/#{genre.slug}'] = genre.name

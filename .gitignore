@@ -1,2 +1,4 @@
 *.db
 *.sqlite
+/true/
+browser_sync_proxy.yml
