@@ -8,3 +8,11 @@ require 'sinatra/activerecord/rake'
 task :console do
   Pry.start
 end
+
+desc "Reload everything"
+task :reload! do
+  load_all "./config" if Dir.exists?("./config")
+  load_all "./app" if Dir.exists?("./app")
+  load_all "./lib" if Dir.exists?("./lib")
+  load_all "./*.rb" if Dir.entries(".").include?(/\.rb/)
+end
