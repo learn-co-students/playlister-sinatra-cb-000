@@ -1,0 +1,12 @@
+<form action = "/songs/<%=@song.slug %>" method = "POST">
+  <h3 style = "display: inline-block; width: 150px;">Song Name:</h3><input type = "text" name = "song[name]" id = "song_name" value = "<%=@song.name%>"><br>
+
+  <h3> Choose and existing genre:</h3>
+    <% Genre.all.each do |genre| %>
+      <input type = "checkbox" name = "song[genre_ids][]" id = "<%=genre.name %>" value = "<%=genre.id %>" <%='checked' if @song.genres.include?(genre) %> ><%=genre.name %></input><br>
+  <% end %>
+
+  <h3 style = "display: inline-block; width: 150px;">Artist Name:</h3><input type = "text" name = "artist[name]" id = "Artist Name" value = "<%=@song.artist.name%>"><br>
+<input type = "submit" id = "Save" value = "Save" style = "color: blue; box-shadow: none; background-color: orange; border: 0; font-size: 1.5em;">
+
+</from>
