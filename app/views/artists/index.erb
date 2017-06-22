@@ -1,0 +1,9 @@
+<h2>Here are your ARTISTS</h2>
+<ul>
+<% @artists.each { |artist| %>
+  <li>
+    <a href='/artists/<%=artist.slug%>'><%=artist.name%></a>
+     === Genres: <%=artist.genres.collect{|g| g.name}.join(', ')%>
+  </li>
+<% } %>
+</ul>

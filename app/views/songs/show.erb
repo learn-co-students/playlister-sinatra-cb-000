@@ -1,0 +1,6 @@
+<h2><%= @song.name %></h2>
+<% if flash.has?(:message) %>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+<h3>by <a href='/artists/<%=@song.artist.slug%>'><%= @song.artist.name %></a></h3>
+<h4>Genres: <%=@song.genres.collect{|g| "<a href='/genres/#{g.slug}'>#{g.name}</a>"}.join(', ')%></h4>
