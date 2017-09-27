@@ -1,0 +1,6 @@
+<ul>
+<%Genre.all.each do |s| %>
+  <li><%=s.name%> <a href='/genres/<%=s.slug%>'>show song</a>
+  </li>
+<%end%>
+</ul>
