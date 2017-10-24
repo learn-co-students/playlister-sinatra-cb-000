@@ -7,7 +7,7 @@ has_many :genres, through: :song_genres
 before_save :slugify
 
 def slugify
-  binding.pry
+  # binding.pry
   self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
 end
 
