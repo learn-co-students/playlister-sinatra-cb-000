@@ -4,11 +4,14 @@ class LibraryParser
     Dir.entries(data_path)[2..-1]
   end
 
+
   def self.parse
+    # Call with LibraryParser.parse ??
     self.new.call
   end
 
   def parse_filename(filename)
+
     artist_match = filename.match(/^(.*) -/)
     song_match   = filename.match(/- (.*) \[/)
     genre_match  = filename.match(/\[([^\]]*)\]/)
@@ -21,6 +24,7 @@ class LibraryParser
   end
 
   def call
+    # Iterates over files, returns an array of meta tags, and builds objects from these tags.  Requires models for each object
     files.each do |filename|
       parts = parse_filename(filename)
       build_objects(*parts)
@@ -31,10 +35,11 @@ class LibraryParser
     song = Song.create(name: song_name)
     genre = Genre.find_or_create_by(name: genre_name)
     artist = Artist.find_or_create_by(name: artist_name)
-
+    artist.slug = artist.slugify
+    genre.slug = genre.slugify
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+    song.slug = song.slugify
     song.save
   end
 end
