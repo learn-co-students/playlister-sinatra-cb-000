@@ -3,14 +3,18 @@ belongs_to :artist
 has_many :song_genres
 has_many :genres, through: :song_genres
 
-def slug
 
-  slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+before_save :slugify
 
+def slugify
+  binding.pry
+  self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
 end
 
-def self.find_by_slug(slug)
-  self.find_by_name(slug.titlecase)
+
+def self.find_by_slug(str)
+  # binding.pry
+  self.find_by(slug: str)
 end
 
 end

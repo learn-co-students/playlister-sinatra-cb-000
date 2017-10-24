@@ -35,10 +35,11 @@ class LibraryParser
     song = Song.create(name: song_name)
     genre = Genre.find_or_create_by(name: genre_name)
     artist = Artist.find_or_create_by(name: artist_name)
-
+    artist.slug = artist.slugify
+    genre.slug = genre.slugify
     song.song_genres.build(genre: genre)
     song.artist = artist
-
+    song.slug = song.slugify
     song.save
   end
 end
