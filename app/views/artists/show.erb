@@ -1,0 +1,17 @@
+<p>Hi there!</p>
+<p><%= @artist.name %></p>
+
+<p>Here are the artist's song or songs:</p>
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><%= song.name %> with link <a href="/songs/<%= song.slug %>">here</a></li>
+  <% end %>
+</ul>
+
+<p>Here are the artist's genre or genres:</p>
+<ul>
+  <% @artist.genres.each do |genre| %>
+    <li><%= genre.name %> with link <a href="/genres/<%= genre.slug %>">here</a>/li>
+  <% end %>
+</ul>
+
