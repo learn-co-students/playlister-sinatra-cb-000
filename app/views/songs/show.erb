@@ -1,4 +1,4 @@
-<p><% @song.name %></p>
+<p><%= @song.name %></p>
 <p>The song's artist is: <%= @song.artist.name %></p>
 <p>The song's genre(s) are:</p>
 <ul>
@@ -7,9 +7,11 @@
   <% end %>
 </ul>
 <p>The artist's show page is: <a href="/artists/<%= @song.artist.slug %>">Click here</a></p>
-<p>The genre's show page is or are:</p>
+<p>The genre's show page is:</p>
 <ul>
   <% @song.genres.each do |genre|%>
     <li><a href="/genres/<%= genre.slug %>">Click here</a></li> 
   <% end %>
 </ul>
+
+<p>Successfully created song.</p>
