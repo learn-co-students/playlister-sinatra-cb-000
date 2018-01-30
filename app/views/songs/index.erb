@@ -1,0 +1,9 @@
+SONGS PAGE
+<ol>
+<%@songs.each do |song|%>
+  <p><li><%=song.name%>
+    <br>
+    <a href='/songs/<%=song.slug%>'>Click here for song's page</a>
+  </p>
+<%end%>
+</ol>

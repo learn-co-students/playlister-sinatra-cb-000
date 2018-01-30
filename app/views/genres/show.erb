@@ -1,0 +1,13 @@
+<h1><%=@genre.name%></h1>
+<h2>These are the artists that play this genre:</h2>
+<h3><ol>
+    <p><%@genre.artists.ids.each do |i|%>
+      <li><%=Artist.find_by_id(i).name%>
+      <br><a href="/artists/<%=Artist.find_by_id(i).slug%>">Click here to visit artist's page</a>
+    </li><%end%></p></ol></h3>
+
+<h2>These are the songs for this genre:</h2>
+<h3><ol><p><%@genre.songs.ids.each do |i|%>
+        <li><%=Song.find_by_id(i).name%>
+        <br><a href="/songs/<%=Song.find_by_id(i).slug%>">Click here to visit artist's page</a>
+      </li><%end%></p></ol></h3>
