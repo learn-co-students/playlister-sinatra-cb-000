@@ -1,0 +1,15 @@
+<h1>This is <%=@artist.name %>'s Page</h1>
+<h2>These are his songs:</h2>
+<h3><ol>
+  <p><%@artist.songs.ids.each do |s|%>
+    <li><%=Song.find_by_id(s).name%>
+      <a href='/songs/<%=Song.find_by_id(s).slug%>'>Click here to visit song's page</a>
+    <%end%></li></p></ol>
+</h3>
+<h2>These are the genres of music he plays:</h2>
+<h3><ol>
+  <p><%@artist.genres.ids.each do |s|%>
+    <li><%=Genre.find_by_id(s).name%>
+      <a href='/genres/<%=Genre.find_by_id(s).slug%>'>Click here to visit genre's page</a>
+    <%end%></li></p></ol>
+</h3>
