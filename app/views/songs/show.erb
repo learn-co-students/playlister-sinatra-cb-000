@@ -1,0 +1,13 @@
+<% if @success_message %>
+  <div id="success" style="border: 2px solid green;">
+    <%= @success_message %>
+  </div>
+<% end %>
+
+<h1> <%= @song.name %> </h1>
+
+<a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %> </a>
+
+<% @song.genres.each do |genre| %>
+  <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
+<% end %>
