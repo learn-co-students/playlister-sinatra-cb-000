@@ -1,0 +1,35 @@
+touch app/controllers/application_controller.rb
+touch app/controllers/artists_controller.rb
+touch app/controllers/genres_controller.rb
+touch app/controllers/songs_controller.rb
+touch app/models/artist.rb
+touch app/models/concerns/slugifiable.rb
+touch app/models/genre.rb
+touch app/models/song.rb
+touch app/models/song_genre.rb
+touch app/views/artist/index.erb
+touch app/views/artist/show.erb
+touch app/views/genres/index.erb
+touch app/views/genres/show.erb
+touch app/views/genres/index.erb
+touch app/views/genres/layout.erb
+touch app/views/songs/edit.erb
+touch app/views/songs/index.erb
+touch app/views/songs/new.erb
+touch app/views/songs/show.erb
+
+
+
+
+
+
+
+
+
+
+
+
+
+│           ├── new.erb
+
+│           └── show.erb
