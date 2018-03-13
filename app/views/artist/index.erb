@@ -1,0 +1,7 @@
+<h1>All Artists!</h1>
+
+<% @artists.each do |artist| %>
+  <div class="artist">
+    <h2>Artist: <a href="/artists/<%= artist.slug %>"> <%= artist.name %></a></h2>
+  </div><br>
+<% end %>

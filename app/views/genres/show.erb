@@ -1,0 +1,7 @@
+<h1>Genre: <%= @genre.name %></h1>
+
+  <div class="genre">
+    <h2>Genre Name: <%= @genre.name %></h2>
+    <h4>Genre Songs: <%= @genre.songs.map {|s| "<a href=/songs/"+s.slug+">"+s.name+"</a>"}.to_s %></h4>
+    <h4>Genre Artist(s): <%= @genre.songs.map {|s| "<a href=/artists/"+s.artist.slug+">"+s.artist.name+"</a>"}.to_s %></h4>
+  </div><br>
