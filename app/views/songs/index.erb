@@ -1,5 +1,8 @@
+
 <%@songs.each do |song|%>
-  <%=song.name%>
-  <!--  wuts the error? -->
-  <a href=<%= "/songs/#{@song.slug}" %>>link</a>
+  <%= song.name %>
+  <!--  man, there was no @song to use -->
+  <a href=<%= "/songs/#{song.slug}" %>>link</a>
+
+
 <%end%>
