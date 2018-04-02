@@ -9,4 +9,15 @@ class Artist < ActiveRecord::Base
     self.name.downcase.gsub(/\s/, '-')
   end
 
+  def self.find_by_slug(slug)
+    # reverse the slug to name?
+    slug = slug.gsub('-', ' ').gsub(/\w+/, &:capitalize)
+    # slug = slug.gsub(/\w+/, &:capitalize)
+
+
+    Artist.where(name: slug).first
+    # binding.pry
+
+  end
+
 end
