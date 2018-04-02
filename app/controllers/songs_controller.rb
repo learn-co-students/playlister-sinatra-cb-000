@@ -5,6 +5,30 @@ class SongsController < ApplicationController
     erb :'/songs/index'
   end
 
+  get '/songs/new' do
+
+    @genres = Genre.all
+    # @landmarks = Landmark.all
+
+    erb :'/songs/new'
+  end
+
+  post '/songs' do
+
+# @figure = Figure.create(params[:figure])
+# #
+# #
+# if !params["title"]["name"].empty?
+#   @figure.titles << Title.create(name: params["title"]["name"])
+# end
+# if !params["landmark"]["name"].empty?
+#   @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+# end
+#
+# @title.save
+# redirect "owners/#{@owner.id}"
+end
+
   get '/songs/:slug' do
     # @songs = Song.all
     # this is tested to work..
@@ -19,4 +43,6 @@ class SongsController < ApplicationController
 
     erb :'/songs/show'
   end
+
+
 end
