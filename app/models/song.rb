@@ -16,7 +16,7 @@ class Song < ActiveRecord::Base
     slugToName = slug.gsub('-', ' ')
     # slug = slug.gsub(/\w+/, &:capitalize)
     x = Song.arel_table
-    Song.where(x[:name].matches("%#{slugToName}%"))
+    Song.where(x[:name].matches("%#{slugToName}%")).first
     # Song.where(name: slugToName).first
     # binding.pry
 
