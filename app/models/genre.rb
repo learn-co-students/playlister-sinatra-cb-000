@@ -11,11 +11,10 @@ class Genre < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     # reverse the slug to name?
-    slugToName = slug.gsub('-', ' ').gsub(/\w+/, &:capitalize)
+    slugToName = slug.gsub('-', ' ')
     # slug = slug.gsub(/\w+/, &:capitalize)
-
-
-    Genre.where(name: slugToName).first
+    x = Genre.arel_table
+    Genre.where(x[:name].matches("%#{slugToName}%")).first
     # binding.pry
 
   end

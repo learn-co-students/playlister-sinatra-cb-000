@@ -11,11 +11,10 @@ class Artist < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     # reverse the slug to name?
-    slugToName = slug.gsub('-', ' ').gsub(/\w+/, &:capitalize)
+    slugToName = slug.gsub('-', ' ')
     # slug = slug.gsub(/\w+/, &:capitalize)
-
-
-    Artist.where(name: slugToName).first
+    x = Artist.arel_table
+    Artist.where(x[:name].matches("%#{slugToName}%")).first
     # binding.pry
 
   end
