@@ -14,8 +14,12 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-
+    # binding.pry
 # @figure = Figure.create(params[:figure])
+
+  @song = Song.create(params["Name"])
+
+  # LF using param genres
 # #
 # #
 # if !params["title"]["name"].empty?
