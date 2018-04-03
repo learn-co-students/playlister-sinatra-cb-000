@@ -1,4 +1,10 @@
+require 'sinatra/base'
+require 'rack-flash'
+
 class SongsController < ApplicationController
+  enable :sessions
+  use Rack::Flash
+
   get '/songs' do
     @songs = Song.all
 
@@ -32,6 +38,8 @@ class SongsController < ApplicationController
   @song.song_genres.create(genre: @genre)
 
   @song.save
+
+  flash[:message] = "Successfully created song."
 
   redirect to("/songs/#{@song.slug}")
   # LF using param genres
