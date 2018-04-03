@@ -23,8 +23,16 @@ class SongsController < ApplicationController
   # @artist = Artist.create(name: params["Artist Name"])
   @song.artist = Artist.create(name: params["Artist Name"])
 
-  @song.save
+  # @genre = Genre.create(name: genre_name)
   # binding.pry
+  # the genres already exist.
+  # @genre = Genre.create(params[:genres])
+  # might be an issue with this down the road
+  @genre = Genre.find_by(id: params[:genres][0])
+  @song.song_genres.create(genre: @genre)
+
+  @song.save
+
   redirect to("/songs/#{@song.slug}")
   # LF using param genres
 # #
