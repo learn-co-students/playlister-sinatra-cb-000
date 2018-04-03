@@ -16,9 +16,16 @@ class SongsController < ApplicationController
   post '/songs' do
     # binding.pry
 # @figure = Figure.create(params[:figure])
+  # p 'tes'
 
-  @song = Song.create(params["Name"])
+  # cuz Name is just a string
+  @song = Song.create(name: params[:Name])
+  # @artist = Artist.create(name: params["Artist Name"])
+  @song.artist = Artist.create(name: params["Artist Name"])
 
+  @song.save
+  # binding.pry
+  redirect to("/songs/#{@song.slug}")
   # LF using param genres
 # #
 # #
