@@ -27,7 +27,7 @@ class SongsController < ApplicationController
   # cuz Name is just a string
   @song = Song.create(name: params[:Name])
   # @artist = Artist.create(name: params["Artist Name"])
-  @song.artist = Artist.create(name: params["Artist Name"])
+  @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
 
   # @genre = Genre.create(name: genre_name)
   # binding.pry
