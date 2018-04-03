@@ -66,7 +66,7 @@ get '/songs/:slug/edit' do
   #  @figure = Figure.find(params[:slug])
    @song = Song.find_by_slug(params[:slug])
 
-   binding.pry
+  #  binding.pry
 
   # p params[:genres]
 
