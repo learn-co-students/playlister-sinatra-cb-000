@@ -56,6 +56,11 @@ class SongsController < ApplicationController
 # redirect "owners/#{@owner.id}"
 end
 
+get '/songs/:slug/edit' do
+   @song = Song.find_by_slug(params[:slug])
+   erb :'/songs/edit'
+ end
+
   get '/songs/:slug' do
     # @songs = Song.all
     # this is tested to work..
@@ -66,7 +71,6 @@ end
     # find by something else?
     @song = Song.find_by_slug(params[:slug])
     # binding.pry
-
 
     erb :'/songs/show'
   end
