@@ -66,12 +66,22 @@ get '/songs/:slug/edit' do
   #  @figure = Figure.find(params[:slug])
    @song = Song.find_by_slug(params[:slug])
 
+   binding.pry
+
+  # p params[:genres]
+
+  # didnt persist genre edit once finished
+   if params[:genres].nil?
+     @song.song_genres.clear
+   end
+
   # wont work.
   @artist = Artist.find_by(id: @song.artist_id)
   @artist.name = params["Artist Name"]
   @artist.save
-  #
-  #
+
+
+
   # #  @figure.update(params["figure"])
   # #  if !params["landmark"]["name"].empty?
   # #    @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
