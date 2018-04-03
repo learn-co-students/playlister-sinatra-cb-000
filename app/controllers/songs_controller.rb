@@ -61,6 +61,31 @@ get '/songs/:slug/edit' do
    erb :'/songs/edit'
  end
 
+# this prolly should be a patch
+ post '/songs/:slug' do
+  #  @figure = Figure.find(params[:slug])
+   @song = Song.find_by_slug(params[:slug])
+
+  # wont work.
+  @artist = Artist.find_by(id: @song.artist_id)
+  @artist.name = params["Artist Name"]
+  @artist.save
+  #
+  #
+  # #  @figure.update(params["figure"])
+  # #  if !params["landmark"]["name"].empty?
+  # #    @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+  # #  end
+  #
+  # @song.artist.name = params["Artist Name"]
+  # @song.save
+
+   flash[:message] = "Successfully updated song."
+
+   redirect to "songs/#{@song.slug}"
+   end
+
+
   get '/songs/:slug' do
     # @songs = Song.all
     # this is tested to work..

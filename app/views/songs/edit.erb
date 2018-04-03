@@ -1,6 +1,6 @@
 <h1>Update Figure</h1>
 
-<form action="/songs/<%=@song.id%>" method="POST">
+<form action="/songs/<%=@song.slug%>" method="POST">
   <label>Name:</label>
 
   <br></br>
@@ -9,3 +9,7 @@
 
 
   <br></br>
+
+  <input type="submit" value="Save">
+
+</form>
