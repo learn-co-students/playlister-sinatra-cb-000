@@ -1,11 +1,11 @@
-class ArtistsController < ApplicationController
-  get '/artists' do
-    @artists = Artist.all
+class GenresController < ApplicationController
+  get '/genres' do
+    @genres = Genre.all
 
-    erb :'/artists/index'
+    erb :'/genres/index'
   end
 
-  get '/artists/:slug' do
+  get '/genres/:slug' do
     # @songs = Song.all
     # this is tested to work..
     # p Song.all
@@ -13,10 +13,10 @@ class ArtistsController < ApplicationController
     # class method.. spelt right, given an arg. arg has contents..
     # but doesnt return anything..
     # find by something else?
-    @artist = Artist.find_by_slug(params[:slug])
+    @genre = Genre.find_by_slug(params[:slug])
     # binding.pry
 
 
-    erb :'/artists/show'
+    erb :'/genres/show'
   end
 end
