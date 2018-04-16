@@ -1,0 +1,6 @@
+<h2 style="text-decoration: underline;">My Artists:</h2>
+
+
+<% Artist.all.each do |artist| %>
+  <h3><%= "#{artist.id}: " %><a href='/artists/<%="#{artist.slug}"%>'><%= "#{artist.name}" %></a></h3>
+<% end %>
