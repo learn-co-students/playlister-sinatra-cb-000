@@ -1,0 +1,6 @@
+<h2 style="text-decoration: underline;">My Genres:</h2>
+
+
+<% Genre.all.each do |genre| %>
+  <h3><%= "#{genre.id}: " %><a href='/genres/<%="#{genre.slug}"%>'><%= "#{genre.name}" %></a></h3>
+<% end %>
