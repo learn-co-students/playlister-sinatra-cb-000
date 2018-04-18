@@ -9,6 +9,11 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'pry-byebug'
+gem 'tux'
+gem 'rack-flash3'
+
+gem 'sinatra-flash',  :git => 'http://github.com/SFEley/sinatra-flash'
 
 group :test do
   gem 'rspec'
