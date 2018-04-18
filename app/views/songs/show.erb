@@ -1,6 +1,9 @@
 <h1><%= @song.name %></h1>
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
 <h2> artist </h2>
-<%= Artist.find(@song.artist_id).name %>
+<a href='/artists/<%= @song.artist_slug%>'><%= @song.artist_name %></a>
 
 <h2> Genres </h2>
 <% @song.genres.each do |genre| %>

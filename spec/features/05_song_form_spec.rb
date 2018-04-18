@@ -23,6 +23,7 @@ describe "Song Forms" do
         }.to change(Artist, :count).by(1)
       end
 
+
       it "creates a new song on submit" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
@@ -34,7 +35,66 @@ describe "Song Forms" do
         expect(page).to have_content(genre_2_name)
         expect(page).to have_content("Successfully created song.")
       end
+      
+      it "creates a new song and displays name" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
 
+        expect(page).to have_content(song_name)
+      end
+
+      it "associates artist name with new song" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+
+        expect(page).to have_content(artist_name)
+      end
+
+      it "has genre 2 association" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+
+        expect(page).to have_content(genre_2_name)
+      end
+
+      it "displays correct creation message" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+
+        expect(page).to have_content("Successfully created song.")
+      end
+
+
+      it "creates a new song on submit" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+
+        expect(page).to have_content(song_name)
+        expect(page).to have_content(artist_name)
+        expect(page).to have_content(genre_2_name)
+        expect(page).to have_content("Successfully created song.")
+      end
+      it "creates a new song on submit" do
+        fill_in "Name", with: song_name
+        check "New Age Garbage"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+
+        expect(page).to have_content(song_name)
+        expect(page).to have_content(artist_name)
+        expect(page).to have_content(genre_2_name)
+        expect(page).to have_content("Successfully created song.")
+      end
       it "redirects to '/songs/:slug' after creation" do
         fill_in "Name", with: song_name
         check "New Age Garbage"
@@ -69,6 +129,41 @@ describe "Song Forms" do
         expect(page).to have_content(genre_1_name)
         expect(page).to have_content("Successfully created song.")
       end
+      
+
+
+      it "creates a new song" do
+        fill_in "Name", with: song_name
+        check "Hippity Hop"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+        expect(page).to have_content(song_name)
+      end
+
+      it "has artist name after creation" do
+        fill_in "Name", with: song_name
+        check "Hippity Hop"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+        expect(page).to have_content(artist_name)
+      end
+
+      it "song has genre after creation" do
+        fill_in "Name", with: song_name
+        check "Hippity Hop"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+        expect(page).to have_content(genre_1_name)
+      end
+
+      it "displays success message after creation" do
+        fill_in "Name", with: song_name
+        check "Hippity Hop"
+        fill_in "Artist Name", with: artist_name
+        click_on "Create"
+        expect(page).to have_content("Successfully created song.")
+      end
+     
 
       it "redirects to '/songs/:slug' after creation" do
         fill_in "Name", with: song_name
@@ -110,22 +205,61 @@ describe "Song Forms" do
       end
     end
 
-    context "changing a song's genres" do
+    context "changing a song's properties" do
       it "has a checkbox element on the form" do
         expect(page.body).to include("checkbox")
       end
 
-      it "updates the song's genres" do
+      it "updates the song's properties" do
         uncheck "New Age Garbage"
         check "Hippity Hop"
         click_on "Save"
-
+        expect(page).not_to have_content("New Age Garbage")
         expect(page).to have_content("Successfully updated song.")
         expect(page).to have_content(song_name)
-        expect(page).to have_content(artist_name)
         expect(page).to have_content("Hippity Hop")
+        expect(page).to have_content(artist_name)
+      end
+
+
+
+      it "removes a song's genre" do
+        uncheck "New Age Garbage"
+        check "Hippity Hop"
+        click_on "Save"
         expect(page).not_to have_content("New Age Garbage")
       end
+
+      it "adds a genre to a song" do
+        click_on "Save"
+        expect(page).to have_content("Hippity Hop")
+      end
+
+
+      it "keeps song name when genres are changed " do
+        uncheck "New Age Garbage"
+        check "Hippity Hop"
+        click_on "Save"
+        expect(page).to have_content(song_name)
+      end
+
+      it "keeps artist name whwen the genres are changed" do
+        uncheck "New Age Garbage"
+        check "Hippity Hop"
+        click_on "Save"
+        expect(page).to have_content(artist_name)
+      end
+
+      it "shows sucess message " do
+        uncheck "New Age Garbage"
+        check "Hippity Hop"
+        click_on "Save"
+        expect(page).to have_content("Successfully updated song.")
+      end
+
+
+
+
 
       it "renders to the song show page" do
         uncheck "Hippity Hop"

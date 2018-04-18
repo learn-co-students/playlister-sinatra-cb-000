@@ -16,10 +16,9 @@ class CreateAppointments < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    create_table :appointments do |t|
+    create_table :song_genres do |t|
       t.belongs_to :song, index: true
       t.belongs_to :genre, index: true
-      t.datetime :appointment_date
       t.timestamps
     end
   end
