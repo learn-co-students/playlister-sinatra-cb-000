@@ -1,3 +1,7 @@
+Artist.destroy_all
+Song.destroy_all
+Genre.destroy_all
+
 bazzi = Artist.create(name: "Bazzi")
 
 honest = Song.create(name: "Honest")
@@ -26,4 +30,6 @@ work.genres << hiphop
 diamonds.genres << pop
 
 rihanna.songs << work
-rihanna.diamonds << diamonds
+rihanna.songs << diamonds
+
+p "Created #{Artist.count} artists, #{Song.count} songs, and #{Genre.count} genres"
