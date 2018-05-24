@@ -14,33 +14,52 @@ rb = Genre.create(name: "R&B")
 trap_music = Genre.create(name: "Trap")
 
 # Song seeds and associations
-ball_for_me = Song.create(name: 'Ball For Me').genres << trap_music << rb << hip_hop << rap
-psycho = Song.create(name: 'Psycho').genres << trap_music << rb << hip_hop
-zack_and_codeine = Song.create(name: 'Zack And Codeine').genres << trap_music << rb << hip_hop
-rockstar = Song.create(name: 'rockstar').genres << trap_music << rb << hip_hop
-post_malone.songs << ball_for_me << psycho << zack_and_codine << rockstar
+ball_for_me = Song.create(name: 'Ball For Me')
+ball_for_me.genres << trap_music << rb << hip_hop << rap
+psycho = Song.create(name: 'Psycho')
+psycho.genres << trap_music << rb << hip_hop
+zack_and_codeine = Song.create(name: 'Zack And Codeine')
+zack_and_codeine.genres << trap_music << rb << hip_hop
+rockstar = Song.create(name: 'rockstar')
+rockstar.genres << trap_music << rb << hip_hop
+post_malone.songs << ball_for_me << psycho << zack_and_codeine << rockstar
 
-the_night_is_still_young = Song.create(name: 'The Night Is Still Young').genres << pop << rap
-moment_4_life = Song.create(name: 'Moment 4 Life').genres << rap << hip_hop << pop << rb
-anaconda = Song.create(name: 'Anaconda').genres << rap << hip_hop
-chun_li = Song.create(name: 'Chun-Li').genres << rap << hip_hop
-grand_piano = Song.create(name: 'Grand Piano').genres << pop
+the_night_is_still_young = Song.create(name: 'The Night Is Still Young')
+the_night_is_still_young.genres << pop << rap
+moment_4_life = Song.create(name: 'Moment 4 Life')
+moment_4_life.genres << rap << hip_hop << pop << rb
+anaconda = Song.create(name: 'Anaconda')
+anaconda.genres << rap << hip_hop
+chun_li = Song.create(name: 'Chun-Li')
+chun_li.genres << rap << hip_hop
+grand_piano = Song.create(name: 'Grand Piano')
+grand_piano.genres << pop
 nicki_minaj.songs << the_night_is_still_young << moment_4_life << anaconda << chun_li << grand_piano
 
-sorry = Song.create(name: 'Sorry').genres << rb << hip_hop
-halo = Song.create(name: 'Halo').genres << pop << rb
-formation = Song.create(name: 'Formation').genres << rb << hip_hop
-check_on_it = Song.create(name: 'Check On It').genres << rb << hip_hop << pop
+sorry = Song.create(name: 'Sorry')
+sorry.genres << rb << hip_hop
+halo = Song.create(name: 'Halo')
+halo.genres << pop << rb
+formation = Song.create(name: 'Formation')
+formation.genres << rb << hip_hop
+check_on_it = Song.create(name: 'Check On It')
+check_on_it.genres << rb << hip_hop << pop
 beyonce.songs << sorry << halo << formation << check_on_it
 
-be_careful = Song.create(name: 'Be Careful').genres << rap << hip_hop << pop
-bodak_yellow = Song.create(name: 'Bodak Yellow').genres << rap << hip_hop
-money_bag = Song.create(name: 'Money Bag').genres << rap << hip_hop
+be_careful = Song.create(name: 'Be Careful')
+be_careful.genres << rap << hip_hop << pop
+bodak_yellow = Song.create(name: 'Bodak Yellow')
+bodak_yellow.genres << rap << hip_hop
+money_bag = Song.create(name: 'Money Bag')
+money_bag.genres << rap << hip_hop
 cardi_b.songs << be_careful << bodak_yellow << money_bag
 
-honest = Song.create(name: 'Honest').genres << pop << rb
-mine = Song.create(name: 'Mine').genres << pop << rb
-beautiful = Song.create(name: 'Beautiful').genres << pop << rb
+honest = Song.create(name: 'Honest')
+honest.genres << pop << rb
+mine = Song.create(name: 'Mine')
+mine.genres << pop << rb
+beautiful = Song.create(name: 'Beautiful')
+beautiful.genres << pop << rb
 bazzi.songs << honest << mine << beautiful
 
 p "Created #{Artist.count} Artists, #{Genre.count} Genres, and #{Song.count} Songs"
