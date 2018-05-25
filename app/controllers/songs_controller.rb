@@ -9,11 +9,11 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-  post '/' do
+  post '/songs' do
     binding.pry
-    @song = Song.create(name: params[:song][:name])
-    @song.artist = Artist.find_or_create_by(name: params[:song][:artist])
-    params[:song][:genres].each{|genre_name| @song.genres << Genre.find_or_create_by(name: genre_name)}
+    @song = Song.create(name: params[:name])
+    @song.artist = Artist.find_or_create_by(name: params[:artist])
+    @song.genre_ids = params[:genre_ids]
     @song.save
     redirect to '/songs/#{@song.slug}'
   end
