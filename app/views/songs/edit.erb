@@ -1,0 +1,46 @@
+<h1>Update Song</h1>
+
+<form action="/songs/<%=@song.slug%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label>Song Title:</label>
+  <br></br>
+  <input type="text" name="song[name]" id="Name" value="<%= @song.name %>">
+  <br></br>
+
+  <label>Create a new Artist:</label>
+  <br></br>
+  <input type="text" name="artist[name]" id="Artist Name">
+  <br></br>
+
+  <label>or Select Artist Name:</label>
+  <br></br>
+  <% @artists.each do |artist| %>
+    <input type="radio" name="song[artist_id]" id="<%= artist.name %>" value="<%= artist.id %>" <%='checked' if @song.artist == artist %> >
+      <%= artist.name %>
+    </input>
+  <% end %>
+  <br></br>
+
+  <label>Create a new Genre:</label>
+  <br></br>
+  <input type="text" name="genre[name]" id="Genre Name">
+  <br></br>
+
+  <label>and/or Select Genres:</label>
+  <br></br>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" name="genre[ids][]" id="<%= genre.name %>" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre)%>></input>
+    <%=genre.name%>
+  <% end %>
+  <br></br>
+
+  <input type="submit" id="save" value="Save">
+</form>
+
+<br></br>
+
+<!-- Return to Index -->
+<form action="/songs" method="GET">
+  <input type="submit" value="Go Back to Song Index">
+</form>

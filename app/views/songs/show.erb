@@ -1,0 +1,24 @@
+<!-- views/songs/show.erb -->
+<% if !!flash(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Song</h1>
+
+<p>Song Title: <%=@song.name%></p>
+
+<% if @song.artist %>
+  <p>Artist Name: <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a></p>
+<% else %>
+  <p>Artist Name:</p>
+<% end %>
+
+<p>Genres:</p>
+<ul>
+  <%@song.genres.each do |genre|%>
+    <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+  <%end%>
+</ul>
+
+<!-- Link to Edit -->
+<p><a href="/songs/<%= @song.slug %>/edit">Edit Song</a> or Return to <a href="/songs">Song Index</a></p>
