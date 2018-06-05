@@ -1,0 +1,27 @@
+<!-- views/index.erb -->
+<% if !!flash(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Playlist Index</h1>
+
+<ul>
+  <li>
+    <p><a href="/songs">Songs Index</a></p>
+  </li>
+  <li>
+    <p><a href="/artists">Artists Index</a></p>
+  </li>
+  <li>
+    <p><a href="/genres">Genres Index</a></p>
+  </li>
+
+
+    <li>
+      <% if Song.all.count > 0 %>
+        <p>There are <%= Song.all.count %> Songs in database </p>
+      <% else %>
+        <p><a href="/parse_db">or Run Library Parser to populate database</a></p>
+        <% end %>
+    </li>
+</ul>

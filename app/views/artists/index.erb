@@ -1,0 +1,11 @@
+<h1>Artists Index</h1>
+
+<ul>
+  <% @artists.each do |artist| %>
+    <li>
+      <p><a href="/artists/<%= artist.slug%>"</a><%= artist.name %></p>
+    </li>
+  <% end %>
+</ul>
+
+<p><a href="/artists/new">Add a new artist</a> or Return to <a href="/">Playlist Index</a></p>
