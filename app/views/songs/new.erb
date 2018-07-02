@@ -1,4 +1,10 @@
+<!-- /songs/new.erb -->
+
 <h1>New Song</h1>
+
+<% if !!flash(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 <form action="/songs" method="POST">
   <label>Song Title:</label>
@@ -6,13 +12,7 @@
   <input type="text" name="song[name]" id="Name">
   <br></br>
 
-
-  <label>Create a new Artist:</label>
-  <br></br>
-  <input type="text" name="artist[name]" id="Artist Name">
-  <br></br>
-
-  <label>or Select Artist Name:</label>
+  <label>Select Artist Name:</label>
   <br></br>
   <% @artists.each do |artist| %>
     <input type="radio" name="song[artist_id]" id="<%= artist.name %>" value="<%= artist.id %>" >
@@ -21,24 +21,30 @@
   <% end %>
   <br></br>
 
-  <label>Create a new Genre:</label>
+  <label>Or Create a new Artist:</label>
   <br></br>
-  <input type="text" name="genre[name]" id="Genre Name">
+  <input type="text" name="artist[name]" id="Artist Name">
   <br></br>
 
-  <label>and/or Select Genres:</label>
+  <label>Select Genres:</label>
   <br></br>
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="genre[ids][]" id="<%= genre.name %>"  value="<%= genre.id %>"</input>
+    <input type="checkbox" name="song[genre_ids][]" id="<%= genre.name %>"  value="<%= genre.id %>"</input>
       <%= genre.name %>
     </input>
   <% end %>
   <br></br>
 
+  <label>And/or Create a new Genre:</label>
+  <br></br>
+  <input type="text" name="genre[name]" id="Genre Name">
+  <br></br>
+
   <input type="submit" id="create" value="Create Song">
 </form>
-
 <br></br>
+
+
 
 <!-- Return to Index -->
 <form action="/songs" method="GET">

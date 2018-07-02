@@ -1,9 +1,15 @@
+<!-- /songs/index.erb -->
+
 <h1>Songs Index</h1>
+
+<% if !!flash(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 <ul>
   <% @songs.each do |song| %>
     <li>
-      <p><a href="/songs/<%= song.slug%>"</a><%= song.name %></p>
+      <p><a href="/songs/<%= song.slug%>"><%= song.name %></a></p>
     </li>
   <% end %>
 </ul>
