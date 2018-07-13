@@ -1,0 +1,16 @@
+Artist's Songs and Genres
+
+<h1><%=@artist.name%></h1>
+<h2>Songs</h2>
+<% @artist.songs.each do |song| %>
+<li><%= song.name %></li>
+<a href=<%="/songs/#{song.slug}"%>>Click here to go to the Songs's page</a>
+<%end%>
+
+<h2>Genres</h2>
+<%@artist.songs.each do |song| %>
+<% song.genres.uniq.each do |genre| %>
+<li><%= genre.name %></li>
+<a href=<%="/genres/#{genre.slug}"%>>Click here to go to the Genre's page</a>
+<% end %>
+<% end %>

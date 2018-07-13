@@ -89,7 +89,7 @@ describe "Song Forms" do
       @song.artist = artist
 
       @song.save
-
+      puts @song.slug
       visit "/songs/#{@song.slug}/edit"
     end
 
