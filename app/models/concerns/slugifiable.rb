@@ -9,9 +9,10 @@ module Slugifiable
   module ClassMethods
 
     def find_by_slug(slug)
-      slug = slug.split("-").collect{|c| c.capitalize}
-      unslug = slug.join(" ")
-      self.all.detect{|a| a.name == unslug}
+
+      self.all.find do |c|
+        c.slug == slug
+      end
     end
 
   end
