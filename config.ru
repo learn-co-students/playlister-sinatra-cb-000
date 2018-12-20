@@ -1,7 +1,10 @@
 require './config/environment'
 require 'sinatra'
+# require './app/models/helper_stuff.rb'
 require_relative 'app/controllers/application_controller'
 require_relative 'app/controllers/artists_controller'
+require_relative 'app/controllers/songs_controller'
+require_relative 'app/controllers/genres_controller'
 
 
 if ActiveRecord::Migrator.needs_migration?
@@ -11,3 +14,5 @@ end
 use Rack::MethodOverride
 run ApplicationController
 use ArtistsController
+use SongsController
+use GenresController
