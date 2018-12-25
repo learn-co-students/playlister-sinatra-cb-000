@@ -15,7 +15,6 @@ module HelperStuff
 
   module ClassMethods
     def find_by_slug(input)
-      # binding.pry
       self.all.detect {|a| a.slug == input}
     end
   end

@@ -5,13 +5,4 @@ class Song < ActiveRecord::Base
 
   include HelperStuff
 
-  # def slug
-  #   self.name.downcase.gsub ' ', '-'
-  # end
-  #
-  # def self.find_by_slug(input)
-  #   # binding.pry
-  #   self.all.detect {|artist| artist.slug == input}
-  # end
-
 end
