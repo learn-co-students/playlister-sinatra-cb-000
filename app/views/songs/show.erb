@@ -1,4 +1,9 @@
-<li> <a href="/artists/<%=@song.artist.slug%>"></a><%=@song.artist.name%></li>
+<% binding.pry %>
+<h1>  <%= @message %> </h1>
+
+
+<h1><%=@song.name%></h1>
+<h2> <a href="/artists/<%=@song.artist.slug%>"></a><%=@song.artist.name%></h2>
 
 <%@song.genres.each do |s| %>
 <ul>
