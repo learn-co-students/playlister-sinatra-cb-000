@@ -14,9 +14,7 @@ class SongsController < ApplicationController
       @song.genres << Genre.find_or_create_by(name: g)
     end
     @song.save
-    binding.pry
     session[:song_message] = "Successfully created song."
-
     redirect "songs/#{@song.slug}"
   end
 

@@ -1,5 +1,7 @@
-<% binding.pry %>
-<h1>  <%= @message %> </h1>
+
+<% if session.has?(:song_message) %>
+  <%= session[:song_message] %>
+<% end %>
 
 
 <h1><%=@song.name%></h1>
