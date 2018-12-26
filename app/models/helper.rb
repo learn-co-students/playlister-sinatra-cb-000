@@ -5,6 +5,7 @@ class Helper
   end
 
   def self.find_by_slug(input)
+
     self.all.detect {|a| a.slug == input}
   end
 

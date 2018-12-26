@@ -1,6 +1,6 @@
 require './config/environment'
 require 'sinatra'
-require 'rack-flash'
+
 
 require_relative 'app/controllers/application_controller'
 require_relative 'app/controllers/artists_controller'
