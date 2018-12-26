@@ -16,6 +16,7 @@ class SongsController < ApplicationController
     @song.save
     binding.pry
     session[:song_message] = "Successfully created song."
+
     redirect "songs/#{@song.slug}"
   end
 
