@@ -1,6 +1,9 @@
 <% if session[:song_message] %>
   <%= session[:song_message] %>
 <% end %>
+<% if session[:update_message] %>
+  <%= session[:update_message] %>
+<% end %>
 
 
 <h1><%=@song.name%></h1>
