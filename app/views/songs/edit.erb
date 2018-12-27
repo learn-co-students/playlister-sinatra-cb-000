@@ -3,7 +3,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" id="name" name="name">
   <input type="text" id="Artist Name" name="artist_name">
-  <% @song.genres.each do |genre| %>
+  <% @genres.each do |genre| %>
     <input type="checkbox" name="genres[]" value="<%=genre.name%>" id="<%=genre.name%>"><%=genre.name%></input>
   <%end%>
   <input type="submit" id="Save" value="submit">
