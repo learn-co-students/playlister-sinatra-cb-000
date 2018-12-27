@@ -5,9 +5,8 @@
   <%= session[:update_message] %>
 <% end %>
 
-
 <h1><%=@song.name%></h1>
-<h2> <a href="/artists/<%=@song.artist.slug%>"></a><%=@song.artist.name%></h2>
+<h2><%=@song.artist.name%></h2>
 
 <%@song.genres.each do |s| %>
 <ul>
