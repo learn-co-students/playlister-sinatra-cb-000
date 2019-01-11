@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20190110005459) do
     t.integer "song_id"
   end
 
-  create_table "genres_songs", id: false, force: :cascade do |t|
+  create_table "song_genres", id: false, force: :cascade do |t|
     t.integer "genre_id"
     t.integer "song_id"
   end
 
-  add_index "genres_songs", ["genre_id"], name: "index_genres_songs_on_genre_id"
-  add_index "genres_songs", ["song_id"], name: "index_genres_songs_on_song_id"
+  add_index "song_genres", ["genre_id"], name: "index_song_genres_on_genre_id"
+  add_index "song_genres", ["song_id"], name: "index_song_genres_on_song_id"
 
   create_table "songs", force: :cascade do |t|
     t.string  "name"
