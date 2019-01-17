@@ -1,8 +1,8 @@
-<h3> Make a new Song </h3>
-<form action="/songs" method="post" >
+<h3> Edit <%= @song.name %> </h3>
+<form action= <%= "/songs/#{slugify(@song.name)}" %>  method="post" >
   Name: <input type="text" name="name"><br>
   Artist: <input type="text" name="artist"><br>
-  Genre:
+  Genre(s):
   <ul>
     <% @genres.each do |genre| %>
       <li> <input type="checkbox" name="genre[]" value= <%= "#{genre.id}" %> > <%= genre.name %> </li>

@@ -1,7 +1,7 @@
 <h2> Artists </h2>
 <ul>
   <% @artists.each do |artist| %>
-    <a href= <%="/artists/#{artist.id}" %> >
+    <a href= <%="/artists/#{slugify(artist.name)}" %> >
       <li> <%=artist.name%> </li>
     </a>
   <% end %>

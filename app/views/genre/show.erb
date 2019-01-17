@@ -1,16 +1,16 @@
 <h3> Here's the genre </h3>
 <%= @genre.name %><br>
-Songs in this genre:
+In This Genre:
 <ul>
-  <% @genre.songs.each do |song| %>
-    <li>
-      <a href= <%= "/songs/#{song.id}" %> >
-        <%= song.name %>
-      </a>
-      by
-      <a href= <%= "/artists/#{song.artist_id}" %> >
+<% @genre.songs.each do |song| %>
+  <li>
+    <a href= <%= "/songs/#{slugify(song.name)}" %> >
+     <%= song.name %>
+   </a>
+     by
+     <a href= <%= "/artists/#{slugify(song.artist.name)}" %> >
         <%= song.artist.name %>
-      </a>
-    </li>
-  <% end %>
+     </a>
+   </li>
+<% end %>
 </ul>

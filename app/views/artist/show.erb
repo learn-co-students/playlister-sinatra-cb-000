@@ -1,15 +1,21 @@
 <h3> Here's the artist </h3>
-<%= @artist.name %>
+<%= @artist.name %><br>
+Songs:
 <ul>
   <% @artist.songs.each do |song| %>
     <li>
-      Name:
-      <a href= <%= "/songs/#{song.id}" %> >
+      <a href= <%= "/songs/#{slugify(song.name)}" %> >
         <%= song.name %>.
       </a>
-      Genre:
-      <a href= <%= "/genres/#{song.genre_id}" %> >
-        <%= Genre.find_by(id: song.genre_id).name %>
+    </li>
+  <% end %>
+</ul>
+Known for these genres:
+<ul>
+  <% @artist.genres.each do |genre| %>
+    <li>
+      <a href= <%= "/genres/#{slugify(genre.name)}" %> >
+        <%= genre.name %>.
       </a>
     </li>
   <% end %>
