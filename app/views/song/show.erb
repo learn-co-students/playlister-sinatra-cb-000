@@ -1,0 +1,15 @@
+<h3> Here's the song </h3>
+name:
+<%= @song.name %><br>
+artist_id:
+<%= @song.artist_id %><br>
+artist name:
+<a href= <%= "/artists/#{@song.artist_id}" %> >
+  <%= Artist.find_by(id: @song.artist_id).name %><br>
+</a>
+genre_id:
+<%= @song.genre_id %><br>
+genre name:
+<a href= <%= "/genres/#{@song.genre_id}" %> >
+  <%= Genre.find_by(id: @song.genre_id).name %><br>
+</a>

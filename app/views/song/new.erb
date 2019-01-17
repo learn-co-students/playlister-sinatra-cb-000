@@ -1,0 +1,13 @@
+<h3> Make a new Song </h3>
+<form action="/songs" method="post" >
+  Name: <input type="text" name="name"><br>
+  Artist: <input type="text" name="artist"><br>
+  Genre:
+  <ul>
+    <% @genres.each do |genre| %>
+      <li> <input type="radio" name="genre" value= <%= "#{genre.id}" %> > <%= genre.name %> </li>
+    <% end %>
+  </ul>
+  Submit:
+  <input type="submit" name="submit" id="submit" >
+</form>
