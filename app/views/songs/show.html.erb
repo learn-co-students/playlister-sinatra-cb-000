@@ -1,3 +1,13 @@
+<% if created? %>
+  <h1> Successfully created song. </h1>
+  <% session[:create] = false %>
+
+<% elsif updated? %>
+  <h1> Successfully updated song. </h1>
+  <% session[:update] = false %>
+
+<% end %>
+
 <h2><%= @song.name %></h2>
 <table style="width:500px" border="1px solid black">
   <tr>
@@ -5,9 +15,15 @@
     <th>Genre</th>
   </tr>
   <tr>
-    <td><a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %></a></td>
-    <% @song.genres.each do |genre| %>
-      <td><a href="/genres/<%= genre.slug %>"> <%= genre.name.capitalize %></a></td>
-    <% end %>
+    <td><a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %></a>
+    </td>
+    <td>
+      <% @song.genres.each do |genre| %>
+        <a href="/genres/<%= genre.slug %>"> <%= genre.name %> ,</a>
+      <% end %>
+    </td>
   </tr>
 </table>
+<form method="GET" action="/songs/<%= @song.slug %>/edit">
+  <input type="submit" value="Edit Song">
+</form>

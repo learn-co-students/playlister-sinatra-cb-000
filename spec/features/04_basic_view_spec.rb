@@ -87,7 +87,7 @@ describe "Playlister Basics" do
       end
 
       it "displays the song's genres" do
-        expect(page).to have_content(genre_name.capitalize)
+        expect(page).to have_content(genre_name)
       end
 
       it "contains links to the artist's show page" do
