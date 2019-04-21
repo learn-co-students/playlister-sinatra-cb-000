@@ -39,7 +39,7 @@ class SongsController < ApplicationController
     song = Song.find_by_slug(params[:slug])
     song.name = params[:song_name]
     song.artist.name = params[:artist_name]
-    if !params[:genres].empty?
+    if params[:genres]
       song.genres = params[:genres].collect{|id| Genre.find(id)}
     else
       song.genres.clear
