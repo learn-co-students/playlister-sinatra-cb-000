@@ -8,5 +8,8 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+require 'rack-flash'
+require 'rack/flash/test'
+require_all './app/models/concerns'
 require_all 'app'
 require_all 'lib'
