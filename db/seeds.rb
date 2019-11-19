@@ -1,2 +1,3 @@
 # Add seed data here. Seed your database with `rake db:seed`
-
+# figured this out quicker than I expected, much to my surprise; seeing the #call method in the LibraryParser reminded me of the CLI labs where the bin file would kick off the app...
+LibraryParser.new.call

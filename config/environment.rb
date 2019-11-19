@@ -19,5 +19,8 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+# not crazy about the below but I guess the concerns must load before the models load (because the models refer to the concerns)?
+require_all 'app/models/concerns'
 require_all 'app'
 require_all 'lib'
+
