@@ -1,4 +1,5 @@
 require './config/environment'
+require 'bundler/setup'
 
 begin
   fi_check_migration
@@ -9,3 +10,8 @@ rescue ActiveRecord::PendingMigrationError => err
   STDERR.puts err
   exit 1
 end
+
+use GenresController
+use ArtistsController
+use SongsController
+run ApplicationController
