@@ -1,8 +1,5 @@
-require 'rack-flash'
+class ArtistsController < ApplicationController
 
-class SongsController < ApplicationController
-  use Rack::Flash
-  
     
   get '/artists' do 
     @artists = Artist.all
@@ -12,5 +9,6 @@ class SongsController < ApplicationController
   get '/artists/:slug' do
     @artist = Artist.find_by_slug(params[:slug])
   erb :'/artists/show'
-  
+end 
+
 end
