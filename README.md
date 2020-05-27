@@ -1,4 +1,4 @@
-# Sinatra Playlister
+bundle install# Sinatra Playlister
 
 ## Objectives
 
